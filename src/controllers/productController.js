@@ -1,10 +1,11 @@
 import axios from 'axios';
 
+//dummy apis
 export const getAllProducts = async (req, res) => {
   try {
     const { data } = await axios.get('https://dummyjson.com/products');
   
-    res.status(200).json(data.products); // 'products' is a key in the dummyjson response
+    res.status(200).json(data.products); 
   } catch (error) {
     res.status(500).json({ message: 'Failed to fetch products', error });
   }
