@@ -2,10 +2,7 @@
 import mongoose from 'mongoose';
 
 const cartItemSchema = new mongoose.Schema({
-  productId: {
-    type: Object, // since fake API products aren’t in our DB
-    required: true
-  },
+ productId: Number,
   quantity: {
     type: Number,
     default: 1

@@ -2,10 +2,7 @@
 import mongoose from 'mongoose';
 
 const wishlistItemSchema = new mongoose.Schema({
-  productId: {
-    type: Object, // we're storing fake API product data directly
-    required: true
-  }
+productId: Number,
 });
 
 const wishlistSchema = new mongoose.Schema({
