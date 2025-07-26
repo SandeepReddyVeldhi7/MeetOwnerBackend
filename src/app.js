@@ -25,8 +25,7 @@ app.use(express.json());
 
 app.use('/api/user', auth); 
 
-app.use('/api/products', productRoutes);
-app.use('/api/auth', auth);
+app.use('/api/products', productRoutes);  
 app.use('/api/cart', cartRoutes);
 app.use('/api/wishlist', wishlistRoutes);
 app.use('/api/payment', paymentRoutes);

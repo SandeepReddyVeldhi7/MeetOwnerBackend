@@ -3,6 +3,7 @@ import axios from 'axios';
 export const getAllProducts = async (req, res) => {
   try {
     const { data } = await axios.get('https://dummyjson.com/products');
+  
     res.status(200).json(data.products); // 'products' is a key in the dummyjson response
   } catch (error) {
     res.status(500).json({ message: 'Failed to fetch products', error });

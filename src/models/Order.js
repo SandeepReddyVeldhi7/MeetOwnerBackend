@@ -1,17 +1,26 @@
+// models/Order.js
 import mongoose from 'mongoose';
 
 const orderSchema = new mongoose.Schema({
-  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  razorpay_order_id: String,
-  razorpay_payment_id: String,
-  amount: Number,
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   items: [
     {
-      productId: Object,
-      quantity: Number
+productId: Number,
+      quantity: Number,
     }
   ],
-  status: { type: String, default: 'paid' }
-}, { timestamps: true });
+  amount: Number,
+  razorpay_order_id: String,
+  razorpay_payment_id: String,
+  status: {
+    type: String,
+    enum: ['created', 'paid', 'failed'],
+    default: 'created'
+  },
+  createdAt: { type: Date, default: Date.now },
+  paidAt: Date,
+});
 
-export default mongoose.model('Order', orderSchema);
+
+const Order= mongoose.model('Order', orderSchema);
+export default Order
